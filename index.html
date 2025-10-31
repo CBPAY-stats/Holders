@@ -107,264 +107,192 @@
             100% { transform: rotate(360deg); }
         }
 
-        .stats-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .stat-card h3 {
             font-size: 1.1em;
-            color: #e0e0e0;
+            color: #fff;
             margin-bottom: 10px;
-            font-weight: 600;
+            opacity: 0.8;
         }
 
         .stat-card .value {
-            font-size: 2.2em;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .table-section {
-            background: rgba(42, 42, 42, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title {
             font-size: 2em;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 30px;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(66, 153, 225, 0.3);
         }
 
-        .controls {
+        .controls-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 30px;
             align-items: center;
+            justify-content: center;
         }
 
-        .search-container {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px 20px;
+        .search-input, .filter-select {
+            padding: 12px 20px;
+            border: none;
             border-radius: 25px;
-            border: 2px solid #555;
-            background: rgba(58, 58, 58, 0.8);
-            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
             font-size: 1em;
-            transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #4299e1;
-            box-shadow: 0 0 20px rgba(66, 153, 225, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .search-input::placeholder {
             color: #aaa;
         }
 
-        .filter-select {
-            padding: 15px 20px;
-            border-radius: 25px;
-            border: 2px solid #555;
-            background: rgba(58, 58, 58, 0.8);
-            color: #e0e0e0;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .filter-select:focus {
+        .search-input:focus, .filter-select:focus {
             outline: none;
-            border-color: #4299e1;
-            box-shadow: 0 0 20px rgba(66, 153, 225, 0.3);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
         }
 
         .table-container {
-            overflow-x: auto;
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: rgba(58, 58, 58, 0.8);
-            backdrop-filter: blur(10px);
         }
 
-        table thead th {
-            background: linear-gradient(135deg, #4299e1 0%, #2575fc 100%);
-            padding: 20px 15px;
+        th, td {
+            padding: 15px 20px;
             text-align: left;
-            color: #fff;
-            font-weight: 600;
-            font-size: 1em;
-            letter-spacing: 1px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        table tbody tr {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
         }
 
-        table tbody tr:hover {
+        th {
+            background: rgba(66, 153, 225, 0.2);
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
             background: rgba(66, 153, 225, 0.1);
-            transform: scale(1.01);
-        }
-
-        table td {
-            padding: 18px 15px;
-            vertical-align: middle;
-            font-size: 0.95em;
+            transition: background 0.3s ease;
         }
 
         .rank-cell {
             font-weight: 700;
             color: #4299e1;
-            font-size: 1.1em;
-        }
-
-        .address-cell {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            width: 60px;
         }
 
         .address-cell a {
             color: #4299e1;
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 8px;
-            display: inline-block;
+            transition: color 0.3s ease;
         }
 
         .address-cell a:hover {
-            background: rgba(66, 153, 225, 0.2);
-            color: #fff;
-            text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+            color: #63b3ed;
         }
 
         .balance-cell {
+            font-family: 'Courier New', monospace;
             font-weight: 600;
-            color: #28a745;
-            font-size: 1em;
         }
 
         .percentage-cell {
+            color: #4ade80;
             font-weight: 600;
-            color: #ffc107;
-        }
-
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            flex-direction: column;
-            color: #fff;
-            font-size: 1.5em;
-            backdrop-filter: blur(10px);
-        }
-
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #4299e1;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .pagination {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 30px;
             gap: 10px;
+            margin: 20px 0;
         }
 
         .pagination button {
-            padding: 12px 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #4299e1, #2575fc);
+            color: white;
             border: none;
             border-radius: 25px;
-            background: linear-gradient(135deg, #4299e1 0%, #2575fc 100%);
-            color: #fff;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1em;
+            font-weight: 600;
+            transition: transform 0.2s ease;
         }
 
         .pagination button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
         }
 
         .pagination button:disabled {
-            background: #555;
-            cursor: not-allowed;
             opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .pagination .page-info {
-            color: #e0e0e0;
+            color: #aaa;
             font-weight: 600;
-            margin: 0 20px;
+        }
+
+        .transactions-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .transactions-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 1.8em;
+        }
+
+        .tx-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4299e1;
+        }
+
+        .tx-item strong {
+            color: #4299e1;
+        }
+
+        .tx-item a {
+            color: #63b3ed;
+            text-decoration: none;
+        }
+
+        .tx-item a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -372,387 +300,155 @@
                 font-size: 2em;
             }
 
+            .controls-section {
+                flex-direction: column;
+            }
+
+            th, td {
+                padding: 10px 10px;
+                font-size: 0.9em;
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-container {
-                min-width: auto;
-            }
-
-            table thead th {
-                font-size: 0.8em;
-                padding: 15px 10px;
-            }
-
-            table td {
-                font-size: 0.8em;
-                padding: 12px 8px;
-            }
-
-            .last-updated {
-                position: static;
-                margin-top: 20px;
-                justify-content: center;
-            }
         }
 
-        .footer {
+        .loading {
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px;
             color: #aaa;
-            font-size: 0.9em;
-        }
-
-        .footer a {
-            color: #4299e1;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .transactions-section {
-            background: rgba(42, 42, 42, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            margin-top: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .transactions-container {
-            display: grid;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .transaction-item {
-            background: rgba(58, 58, 58, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .transaction-item:hover {
-            background: rgba(66, 153, 225, 0.1);
-            border-color: rgba(66, 153, 225, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(66, 153, 225, 0.2);
-        }
-
-        .transaction-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .transaction-amount {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #28a745;
-        }
-
-        .transaction-date {
-            font-size: 0.9em;
-            color: #aaa;
-        }
-
-        .transaction-hash {
-            font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            color: #4299e1;
-            margin-top: 5px;
-        }
-
-        .transaction-hash a {
-            color: #4299e1;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .transaction-hash a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .transaction-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .transaction-amount {
-                font-size: 1.1em;
-            }
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="spinner"></div>
-        <div>Carregando dados dos hodlers...</div>
-    </div>
-
     <div class="header">
         <h1>CBPAY Token Holders</h1>
-        <div class="subtitle">XDB Chain Network</div>
+        <p class="subtitle">XDB Chain Dashboard</p>
         <div class="last-updated">
-            <span class="status-indicator"></span>
-            <span id="status-text">Loading...</span>
+            <div class="status-indicator"></div>
+            <span id="last-updated">Loading...</span>
         </div>
     </div>
 
     <div class="container">
         <div class="stats-section">
-            <div class="stats-content">
-                <h2>CBPAY Holders Statistics</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>Total Holders</h3>
-                        <div class="value" id="total-holders">-</div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Total Supply</h3>
-                        <div class="value" id="total-supply">-</div>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Price (USD)</h3>
-                        <div class="value" id="price-usd">-</div>
-                    </div>
-
+            <h2>Live Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Holders</h3>
+                    <div class="value" id="total-holders">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Supply</h3>
+                    <div class="value" id="total-supply">0 CBPAY</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Largest Holder</h3>
+                    <div class="value" id="largest-holder">0 CBPAY</div>
                 </div>
             </div>
         </div>
 
-        <div class="table-section">
-            <h2 class="section-title">Complete List of CBPAY Holders</h2>
-            
-            <div class="controls">
-                <div class="search-container">
-                    <input 
-                        type="text" 
-                        class="search-input" 
-                        id="search-input" 
-                        placeholder="Search by address..."
-                    >
-                </div>
-                <select class="filter-select" id="filter-select">
-                    <option value="all">All Holders</option>
-                    <option value="top100">Top 100</option>
-                    <option value="top500">Top 500</option>
-                    <option value="above1m">Above 1M CBPAY</option>
-                    <option value="above100k">Above 100K CBPAY</option>
-                </select>
-            </div>
+        <div class="controls-section">
+            <input type="text" id="search-input" class="search-input" placeholder="Search by address...">
+            <select id="filter-select" class="filter-select">
+                <option value="all">All Holders</option>
+                <option value="top100">Top 100</option>
+                <option value="top500">Top 500</option>
+                <option value="1m">Above 1M CBPAY</option>
+                <option value="100k">Above 100K CBPAY</option>
+            </select>
+        </div>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>RANK</th>
-                            <th>ADDRESS</th>
-                            <th>BALANCE (CBPAY)</th>
-                            <th>PERCENTAGE</th>
-                        </tr>
-                    </thead>
-                    <tbody id="holders-table-body">
-                        <tr><td colspan="4" style="text-align: center; padding: 40px;">Loading data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="pagination" id="pagination">
-                <button id="prev-btn" disabled>Previous</button>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Address</th>
+                        <th>Balance</th>
+                        <th>% of Supply</th>
+                    </tr>
+                </thead>
+                <tbody id="holders-table-body">
+                    <tr>
+                        <td colspan="4" class="loading">Loading holders...</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button id="prev-btn">Previous</button>
                 <span class="page-info" id="page-info">Page 1 of 1</span>
-                <button id="next-btn" disabled>Next</button>
+                <button id="next-btn">Next</button>
             </div>
         </div>
 
+        <!-- Nova Seção: Recent Large Transactions -->
         <div class="transactions-section">
-            <h2 class="section-title">Recent Large Transactions</h2>
-            <div class="transactions-container" id="transactions-container">
-                <div style="text-align: center; padding: 40px; color: #aaa;">Loading transactions...</div>
-            </div>
+            <h2>Recent Large Transactions (>100K CBPAY)</h2>
+            <div id="tx-list" class="loading">Loading transactions...</div>
         </div>
-    </div>
-
-    <div class="footer">
-        <p>Data provided by the <a href="https://horizon.livenet.xdbchain.com" target="_blank">XDB Chain Horizon API</a></p>
-        <p>Website developed for the CBPAY community</p>
     </div>
 
     <script>
         let holdersData = [];
         let filteredData = [];
         let currentPage = 1;
-        const itemsPerPage = 50;
-
-        // Auto-refresh every hour
-        setInterval(() => {
-            location.reload();
-        }, 100000); // 1 hour in milliseconds
+        const itemsPerPage = 10;
 
         async function loadData() {
             try {
-                // Load holders data
-                const holdersResponse = await fetch('./cbpay_holders_complete.json');
-                if (!holdersResponse.ok) throw new Error("Failed to load holders data");
-                
-                holdersData = await holdersResponse.json();
-                
-                // Sort by balance descending
-                holdersData.sort((a, b) => b.balance - a.balance);
-                
-                // Load market data
-                try {
-                    const marketResponse = await fetch('./cbpay_market_data.json');
-                    if (marketResponse.ok) {
-                        const marketData = await marketResponse.json();
-                        updatePriceData(marketData);
-                    }
-                } catch (error) {
-                    console.warn('Could not load market data:', error);
-                }
-
-                // Load transactions data
-                try {
-                    const transactionsResponse = await fetch('./cbpay_large_transactions.json');
-                    if (transactionsResponse.ok) {
-                        const transactionsData = await transactionsResponse.json();
-                        updateTransactions(transactionsData);
-                    }
-                } catch (error) {
-                    console.warn('Could not load transactions data:', error);
-                    document.getElementById('transactions-container').innerHTML = 
-                        '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading transactions data.</div>';
-                }
-                
+                const response = await fetch('./cbpay_holders.json');
+                holdersData = await response.json();
+                filteredData = [...holdersData];
                 updateStats();
-                updateFilters();
-                updateStatus('Data loaded successfully', false);
-                hideLoading();
+                updateTable();
+                updatePagination();
+                document.getElementById('last-updated').textContent = `Last Updated: ${new Date().toLocaleString()}`;
             } catch (error) {
-                console.error('Error loading data:', error);
-                updateStatus('Error loading data', true);
-                hideLoading();
-                showError();
-            }
-        }
-
-        function hideLoading() {
-            document.getElementById('loading-overlay').style.display = 'none';
-        }
-
-        function showError() {
-            const tbody = document.getElementById('holders-table-body');
-            tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 40px; color: #dc3545;">Error loading data. Please try reloading the page.</td></tr>';
-        }
-
-        function updateStatus(message, isError) {
-            const statusText = document.getElementById('status-text');
-            
-            if (isError) {
-                statusText.textContent = message;
-                statusText.style.color = '#dc3545';
-            } else {
-                statusText.textContent = `Last updated: ${new Date().toLocaleString("en-US")}`;
-                statusText.style.color = '#aaa';
-            }
-        }
-
-        function updateTransactions(transactions) {
-            const container = document.getElementById('transactions-container');
-            
-            if (!transactions || transactions.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #aaa;">No large transactions found.</div>';
-                return;
-            }
-
-            container.innerHTML = transactions.map(tx => `
-                <div class="transaction-item">
-                    <div class="transaction-header">
-                        <div class="transaction-amount">Amount: ${tx.amount.toLocaleString('en-US', {
-                            maximumFractionDigits: 2
-                        })} CBPAY</div>
-                        <div class="transaction-date">Date: ${tx.date}</div>
-                    </div>
-                    <div class="transaction-hash">
-                        Transaction: <a href="https://explorer.xdbchain.com/transaction/${tx.transaction_hash}" target="_blank">${tx.transaction_hash.substring(0, 16)}...</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function updatePriceData(marketData) {
-            const priceElement = document.getElementById("price-usd");
-            if (marketData && marketData.price_usd) {
-                priceElement.textContent = `$${marketData.price_usd.toFixed(8)}`;
-            } else {
-                priceElement.textContent = "N/A";
+                console.error('Error loading holders:', error);
+                document.getElementById('holders-table-body').innerHTML = '<tr><td colspan="4" class="loading">Error loading data. Please refresh.</td></tr>';
             }
         }
 
         function updateStats() {
             const totalHolders = holdersData.length;
             const totalSupply = holdersData.reduce((sum, holder) => sum + holder.balance, 0);
-            const largestHolder = holdersData[0]?.balance || 0;
+            const largestHolder = holdersData[0] ? holdersData[0].balance : 0;
 
-            document.getElementById("total-holders").textContent = totalHolders.toLocaleString("pt-PT");
-            document.getElementById("total-supply").textContent = totalSupply.toLocaleString("pt-PT", {
-                maximumFractionDigits: 0
-            });
-        }
-
-        function updateFilters() {
-            filteredData = [...holdersData];
-            currentPage = 1;
-            updateTable();
-            updatePagination();
+            document.getElementById('total-holders').textContent = totalHolders.toLocaleString();
+            document.getElementById('total-supply').textContent = totalSupply.toLocaleString() + ' CBPAY';
+            document.getElementById('largest-holder').textContent = largestHolder.toLocaleString() + ' CBPAY';
         }
 
         function filterData() {
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const filterType = document.getElementById('filter-select').value;
-            
-            let filtered = [...holdersData];
+            const filterValue = document.getElementById('filter-select').value;
 
-            // Apply search filter
-            if (searchTerm) {
-                filtered = filtered.filter(holder => 
-                    holder.address.toLowerCase().includes(searchTerm)
-                );
-            }
+            filteredData = holdersData.filter(holder => {
+                const matchesSearch = holder.address.toLowerCase().includes(searchTerm);
+                let matchesFilter = true;
 
-            // Apply type filter
-            switch (filterType) {
-                case 'top100':
-                    filtered = filtered.slice(0, 100);
-                    break;
-                case 'top500':
-                    filtered = filtered.slice(0, 500);
-                    break;
-                case 'above1m':
-                    filtered = filtered.filter(holder => holder.balance >= 1000000);
-                    break;
-                case 'above100k':
-                    filtered = filtered.filter(holder => holder.balance >= 100000);
-                    break;
-            }
+                switch (filterValue) {
+                    case 'top100':
+                        matchesFilter = holdersData.findIndex(h => h.address === holder.address) < 100;
+                        break;
+                    case 'top500':
+                        matchesFilter = holdersData.findIndex(h => h.address === holder.address) < 500;
+                        break;
+                    case '1m':
+                        matchesFilter = holder.balance >= 1000000;
+                        break;
+                    case '100k':
+                        matchesFilter = holder.balance >= 100000;
+                        break;
+                }
 
-            filteredData = filtered;
+                return matchesSearch && matchesFilter;
+            });
+
             currentPage = 1;
             updateTable();
             updatePagination();
@@ -813,14 +509,51 @@
             }
         }
 
+        // Nova Função: Load e Render Transações
+        async function loadTransactions() {
+            const list = document.getElementById('tx-list');
+            try {
+                const response = await fetch('./cbpay_large_transactions.json');
+                const txData = await response.json();
+                if (txData.length === 0) {
+                    list.innerHTML = '<div style="text-align: center; padding: 20px;">No large transactions found</div>';
+                    return;
+                }
+                list.innerHTML = txData.map(tx => {
+                    const from = tx.from || 'Unknown';
+                    const to = tx.to || 'Unknown';
+                    return `
+                        <div class="tx-item">
+                            <strong>Amount:</strong> ${tx.amount.toLocaleString()} CBPAY<br>
+                            <strong>From:</strong> <a href="https://explorer.xdbchain.com/address/${from}" target="_blank">${from.substring(0, 8)}...</a><br>
+                            <strong>To:</strong> <a href="https://explorer.xdbchain.com/address/${to}" target="_blank">${to.substring(0, 8)}...</a><br>
+                            <strong>Date:</strong> ${new Date(tx.date).toLocaleString()}<br>
+                            <strong>Hash:</strong> <a href="https://explorer.xdbchain.com/tx/${tx.transaction_hash}" target="_blank">${tx.transaction_hash.substring(0, 16)}...</a>
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {
+                list.innerHTML = '<div style="text-align: center; padding: 20px; color: red;">Error loading transactions</div>';
+                console.error(e);
+            }
+        }
+
         // Event listeners
         document.getElementById('search-input').addEventListener('input', filterData);
         document.getElementById('filter-select').addEventListener('change', filterData);
         document.getElementById('prev-btn').addEventListener('click', () => goToPage(currentPage - 1));
         document.getElementById('next-btn').addEventListener('click', () => goToPage(currentPage + 1));
 
-        // Load data on page load
-        loadData();
+        // Load on page load
+        loadData().then(() => {
+            loadTransactions();  // Chama para tx
+        });
+
+        // Auto-refresh every hour
+        setInterval(() => {
+            loadData();
+            loadTransactions();
+        }, 3600000);
     </script>
 </body>
 </html>
